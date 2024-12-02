@@ -1,0 +1,35 @@
+﻿.top-pane {
+    -fx-background-color: green;
+    -fx-pref-height: 50.0;
+}
+
+.top-button {
+    -fx-background-radius: 5;
+    -fx-start-margin: 5;
+    -fx-background-color: C0C0C0;
+    -fx-pref-width: 40;
+    -fx-pref-height: 40;
+}
+
+.main-pane {
+    -fx-background-color: E0E0E0;
+}
+
+.top-right-box, .top-left-box {
+    -fx-spacing: 10;
+    -fx-padding: 5;
+    -fx-pref-height: 50.0;
+}
+
+/*.top-left-box {*/
+/*    -fx-pref-width: 200.0;*/
+/*}*/
+
+/*.top-right-box {*/
+/*    -fx-pref-width: 100.0;*/
+/*}*/
+
+.bottom-pane {
+    -fx-background-color: gray;
+    -fx-pref-height: 550.0;
+}

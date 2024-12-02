@@ -5,4 +5,6 @@ module com.noix.modpackbuilder {
 
     opens com.noix.modpackbuilder to javafx.fxml;
     exports com.noix.modpackbuilder;
+    exports com.noix.modpackbuilder.controller;
+    opens com.noix.modpackbuilder.controller to javafx.fxml;
 }
