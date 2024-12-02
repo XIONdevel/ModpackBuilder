@@ -1,6 +1,7 @@
 package com.noix.modpackbuilder.gui;
 
 import com.noix.modpackbuilder.BuilderApplication;
+import com.noix.modpackbuilder.controller.MainController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -16,6 +17,10 @@ public class GUIBuilder {
         stage.setTitle("ModpackBuilder");
         stage.setScene(scene);
         stage.show();
+
+        MainController controller = fxmlLoader.getController();
+        controller.initModViewTables();
+        controller.refreshModList(null);
     }
 
 

@@ -10,36 +10,34 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableView?>
 <VBox xmlns:fx="http://javafx.com/fxml"
-           fx:controller="com.noix.modpackbuilder.controller.MainController"
-           prefHeight="400.0"
-           prefWidth="600.0"
-           stylesheets="@css/main.css"
-           styleClass="main-pane">
+      fx:controller="com.noix.modpackbuilder.controller.MainController"
+      prefHeight="400.0"
+      prefWidth="600.0"
+      stylesheets="@css/main.css"
+      styleClass="main-pane">
 
-<!--    <top>-->
         <BorderPane styleClass="top-pane">
             <right>
                 <HBox styleClass="top-right-box">
-                    <Button styleClass="top-button" text="Button"/>
-                    <Button styleClass="top-button" text="R"/>
+                    <Button fx:id="refreshButton" styleClass="top-button" onAction="#refreshModList" text="R"/>
+                    <Button styleClass="top-button" text="S"/><!-- Settings -->
                 </HBox>
             </right>
             <left>
                 <HBox styleClass="top-left-box">
-                    <Button styleClass="top-button" text="B"/><!-- Include all -->
-                    <Button styleClass="top-button" text="B"/><!-- Include none -->
-                    <Button styleClass="top-button" text="B"/><!--  -->
-                    <Button styleClass="top-button" text="B"/><!-- -->
+                    <Button styleClass="top-button" text="A"/><!-- Include all -->
+                    <Button styleClass="top-button" text="N"/><!-- Include none -->
+                    <Button styleClass="top-button" text="C"/><!-- Copy Mods to .minecraft/mods -->
+                    <Button styleClass="top-button" text="B"/><!-- Backup .minecraft/mods to archive-->
                 </HBox>
             </left>
         </BorderPane>
-<!--    </top>-->
 
-<!--    <bottom>-->
         <VBox styleClass="bottom-pane" VBox.vgrow="ALWAYS">
-
+            <TableView fx:id="modView" styleClass="modView" VBox.vgrow="ALWAYS"/>
         </VBox>
-<!--    </bottom>-->
 
 </VBox>

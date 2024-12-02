@@ -1,5 +1,4 @@
 ﻿.top-pane {
-    -fx-background-color: green;
     -fx-pref-height: 50.0;
 }
 
@@ -21,15 +20,15 @@
     -fx-pref-height: 50.0;
 }
 
-/*.top-left-box {*/
-/*    -fx-pref-width: 200.0;*/
-/*}*/
-
-/*.top-right-box {*/
-/*    -fx-pref-width: 100.0;*/
-/*}*/
-
 .bottom-pane {
     -fx-background-color: gray;
     -fx-pref-height: 550.0;
+    -fx-padding: 25;
+}
+
+.modView {
+    -fx-border-color: black;
+    -fx-border-width: 5;
+    -fx-border-radius: 3;
+    -fx-background-radius: 5;
 }
