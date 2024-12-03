@@ -3,37 +3,50 @@ package com.noix.modpackbuilder.mod;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ObservableValue;
 
-import java.util.Date;
 
 public class Mod {
 
     private SimpleStringProperty name;
     private SimpleStringProperty path;
     private SimpleStringProperty version;
-    private SimpleStringProperty modified;
-    private BooleanProperty isEnabled;
+    private SimpleStringProperty minecraftVersion;
+    private SimpleStringProperty modLoader;
+    private BooleanProperty enabled;
 
-    public Mod(String name, String path, String version, String modified) {
-        this.name = new SimpleStringProperty(name);
-        this.path = new SimpleStringProperty(path);
-        this.version = new SimpleStringProperty(version);
-        this.modified = new SimpleStringProperty(modified);
-        isEnabled = new SimpleBooleanProperty(false);
+
+    public void setDefaultValues() {
+        this.name = new SimpleStringProperty();
+        this.path = new SimpleStringProperty();
+        this.version = new SimpleStringProperty();
+        this.minecraftVersion = new SimpleStringProperty();
+        this.modLoader = new SimpleStringProperty();
+        this.enabled = new SimpleBooleanProperty(false);
     }
 
-    public boolean isEnabled() {
-        return isEnabled.get();
+    public Mod() {
+        this.name = new SimpleStringProperty();
+        this.path = new SimpleStringProperty();
+        this.version = new SimpleStringProperty();
+        this.minecraftVersion = new SimpleStringProperty();
+        this.modLoader = new SimpleStringProperty();
+        this.enabled = new SimpleBooleanProperty(false);
     }
 
-    public void setEnabled(boolean enabled) {
-        this.isEnabled.set(enabled);
+    public Mod(SimpleStringProperty name,
+               SimpleStringProperty path,
+               SimpleStringProperty version,
+               SimpleStringProperty minecraftVersion,
+               SimpleStringProperty modLoader,
+               BooleanProperty enabled) {
+        this.name = name;
+        this.path = path;
+        this.version = version;
+        this.minecraftVersion = minecraftVersion;
+        this.modLoader = modLoader;
+        this.enabled = enabled;
     }
 
-    public BooleanProperty enabledProperty() {
-        return isEnabled;
-    }
 
     public String getName() {
         return name.get();
@@ -44,7 +57,7 @@ public class Mod {
     }
 
     public void setName(String name) {
-        this.name.set(name);
+        this.name = new SimpleStringProperty(name);
     }
 
     public String getPath() {
@@ -56,7 +69,7 @@ public class Mod {
     }
 
     public void setPath(String path) {
-        this.path.set(path);
+        this.path = new SimpleStringProperty(path);
     }
 
     public String getVersion() {
@@ -68,18 +81,46 @@ public class Mod {
     }
 
     public void setVersion(String version) {
-        this.version.set(version);
+        this.version = new SimpleStringProperty(version);
     }
 
-    public String getModified() {
-        return modified.get();
+    public String getMinecraftVersion() {
+        return minecraftVersion.get();
     }
 
-    public SimpleStringProperty modifiedProperty() {
-        return modified;
+    public SimpleStringProperty minecraftVersionProperty() {
+        return minecraftVersion;
     }
 
-    public void setModified(String modified) {
-        this.modified.set(modified);
+    public void setMinecraftVersion(String minecraftVersion) {
+        this.minecraftVersion = new SimpleStringProperty(minecraftVersion);
+    }
+
+    public String getModLoader() {
+        return modLoader.get();
+    }
+
+    public SimpleStringProperty modLoaderProperty() {
+        return modLoader;
+    }
+
+    public void setModLoader(String modLoader) {
+        this.modLoader = new SimpleStringProperty(modLoader);
+    }
+
+    public BooleanProperty isEnabledProperty() {
+        return enabled;
+    }
+
+    public void setIsEnabled(boolean enabled) {
+        this.enabled.set(enabled);
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = new SimpleBooleanProperty(enabled);
+    }
+
+    public boolean isEnabled() {
+        return enabled.get();
     }
 }

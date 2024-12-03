@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.io.IOException;
 import java.util.List;
 
 public class MainController {
@@ -19,37 +20,38 @@ public class MainController {
     @FXML
     public Button refreshButton;
 
+    //TODO: add exception handling
     @FXML
-    public void refreshModList(ActionEvent event) {
-        ObservableList<Mod> mods = FXCollections.observableArrayList(
-                new Mod("name", "path/path/path/path", "1.1.0", "2021-01-02"),
-                new Mod("name", "path/path/path/path", "1.1.0", "2021-01-02")
-        );
+    public void refreshModList(ActionEvent event) throws IOException {
+        ObservableList<Mod> mods = FXCollections.observableArrayList(ModUtils.getModList());
         modView.setItems(mods);
     }
 
     public void initModViewTables() {
-        System.out.println("REFRESHING");
-//        List<Mod> modList = ModUtils.getModList();
-
-        TableColumn<Mod, String> nameColumn = new TableColumn<>();
+        TableColumn<Mod, String> nameColumn = new TableColumn<>("Name");
         nameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
+        nameColumn.setPrefWidth(200.0);
 
-        TableColumn<Mod, String> pathColumn = new TableColumn<>();
+        TableColumn<Mod, String> pathColumn = new TableColumn<>("Path");
         pathColumn.setCellValueFactory(cellData -> cellData.getValue().pathProperty());
+        pathColumn.setPrefWidth(500.0);
 
-        TableColumn<Mod, String> versionColumn = new TableColumn<>();
+        TableColumn<Mod, String> versionColumn = new TableColumn<>("Version");
         versionColumn.setCellValueFactory(cellData -> cellData.getValue().versionProperty());
+        versionColumn.setPrefWidth(100.0);
 
-        TableColumn<Mod, String> modifiedColumn = new TableColumn<>();
-        modifiedColumn.setCellValueFactory(cellData -> cellData.getValue().modifiedProperty());
+        TableColumn<Mod, String> minecraftVersionColumn = new TableColumn<>("Minecraft Version");
+        minecraftVersionColumn.setCellValueFactory(cellData -> cellData.getValue().minecraftVersionProperty());
+        minecraftVersionColumn.setPrefWidth(150.0);
 
+        TableColumn<Mod, String> modLoaderColumn = new TableColumn<>("Loader");
+        modLoaderColumn.setCellValueFactory(cellData -> cellData.getValue().modLoaderProperty());
+        modLoaderColumn.setPrefWidth(100.0);
 
-        // Column for status (enabled/disabled)
         TableColumn<Mod, Boolean> statusColumn = new TableColumn<>("Status");
         statusColumn.setCellValueFactory(new PropertyValueFactory<>("enabled"));
+        statusColumn.setPrefWidth(200.0);
 
-        // Custom cell factory for status column
         statusColumn.setCellFactory(column -> new TableCell<>() {
             @Override
             protected void updateItem(Boolean enabled, boolean empty) {
@@ -66,91 +68,22 @@ public class MainController {
             }
         });
 
-        modView.getColumns().addAll(nameColumn, pathColumn, versionColumn, modifiedColumn, statusColumn);
+        modView.getColumns().addAll(
+                nameColumn, pathColumn,
+                versionColumn, minecraftVersionColumn,
+                modLoaderColumn, statusColumn
+        );
 
         modView.setRowFactory(tv -> {
             TableRow<Mod> row = new TableRow<>();
             row.setOnMouseClicked(event -> {
                 if (!row.isEmpty()) {
                     Mod mod = row.getItem();
-                    mod.setEnabled(!mod.isEnabled()); // Toggle the enabled state
-                    modView.refresh(); // Refresh to update the cell appearance
+                    mod.setEnabled(!mod.isEnabled());
+                    modView.refresh();
                 }
             });
             return row;
         });
-
     }
 }
-
-        // Create a TableView
-//        TableView<Person> tableView = new TableView<>();
-//
-//        // Create Columns
-//        TableColumn<Person, String> nameColumn = new TableColumn<>("Name");
-//        nameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
-//
-//        TableColumn<Person, Integer> ageColumn = new TableColumn<>("Age");
-//        ageColumn.setCellValueFactory(cellData -> cellData.getValue().ageProperty().asObject()); // Convert IntegerProperty to Object
-//
-//        // Add columns to the TableView
-//        tableView.getColumns().addAll(nameColumn, ageColumn);
-//
-//        // Populate TableView with data
-//        ObservableList<Person> people = FXCollections.observableArrayList(
-//                new Person("Alice", 30),
-//                new Person("Bob", 25),
-//                new Person("Charlie", 35)
-//        );
-//        tableView.setItems(people);
-//
-//        // Handle Row Selection
-//        tableView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-//            if (newValue != null) {
-//                System.out.println("Selected: " + newValue.getName() + ", Age: " + newValue.getAge());
-//            }
-//        });
-//
-//        // Layout
-//        VBox layout = new VBox(10, tableView);
-//        Scene scene = new Scene(layout, 400, 300);
-//
-//        primaryStage.setScene(scene);
-//        primaryStage.setTitle("JavaFX TableView Example");
-//        primaryStage.show();
-//    }
-//
-//    // Inner class for Person
-//    public static class Person {
-//        private final javafx.beans.property.SimpleStringProperty name;
-//        private final javafx.beans.property.SimpleIntegerProperty age;
-//
-//        public Person(String name, int age) {
-//            this.name = new javafx.beans.property.SimpleStringProperty(name);
-//            this.age = new javafx.beans.property.SimpleIntegerProperty(age);
-//        }
-//
-//        public String getName() {
-//            return name.get();
-//        }
-//
-//        public void setName(String name) {
-//            this.name.set(name);
-//        }
-//
-//        public javafx.beans.property.StringProperty nameProperty() {
-//            return name;
-//        }
-//
-//        public int getAge() {
-//            return age.get();
-//        }
-//
-//        public void setAge(int age) {
-//            this.age.set(age);
-//        }
-//
-//        public javafx.beans.property.IntegerProperty ageProperty() {
-//            return age;
-//        }
-//    }

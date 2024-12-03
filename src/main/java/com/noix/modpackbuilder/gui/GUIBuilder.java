@@ -13,7 +13,7 @@ public class GUIBuilder {
 
     public void initWindow(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(BuilderApplication.class.getResource("main-view.fxml"));
-        Scene scene = scene = new Scene(fxmlLoader.load(), 1000, 600);
+        Scene scene = scene = new Scene(fxmlLoader.load(), 1800, 900);
         stage.setTitle("ModpackBuilder");
         stage.setScene(scene);
         stage.show();
