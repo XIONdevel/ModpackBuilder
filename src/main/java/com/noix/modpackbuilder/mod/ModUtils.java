@@ -19,8 +19,8 @@ public class ModUtils {
         List<Mod> result = new ArrayList<>();
 
         if (!AppConfig.DOWNLOAD_MOD_DIRS.isEmpty()) {
-            for (String dir : AppConfig.DOWNLOAD_MOD_DIRS) {
-                Files.walk(Path.of(dir)).forEach(path -> {
+            for (Path dir : AppConfig.DOWNLOAD_MOD_DIRS) {
+                Files.walk(dir).forEach(path -> {
                     if (!Files.isDirectory(path)) {
                         String fileName = path.getFileName().toString();
                         if (fileName.endsWith(".jar")) {
@@ -62,7 +62,11 @@ public class ModUtils {
                 name.append(word).append(" ");
             }
         }
-        mod.setName(name.toString().trim());
+        if (name.toString().isEmpty()) {
+            mod.setName(formatWord(separatedName[0]));
+        } else {
+            mod.setName(name.toString().trim());
+        }
         return mod;
     }
 

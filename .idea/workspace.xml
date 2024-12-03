@@ -6,12 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="3f229032-fe48-40a8-b6ab-5ac40c3db5b1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/noix/modpackbuilder/BuilderApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/noix/modpackbuilder/BuilderApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/noix/modpackbuilder/config/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/noix/modpackbuilder/config/AppConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/noix/modpackbuilder/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/noix/modpackbuilder/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/noix/modpackbuilder/gui/GUIBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/noix/modpackbuilder/gui/GUIBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/noix/modpackbuilder/mod/Mod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/noix/modpackbuilder/mod/Mod.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/noix/modpackbuilder/mod/ModUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/noix/modpackbuilder/mod/ModUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/noix/modpackbuilder/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/noix/modpackbuilder/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +124,8 @@
       <workItem from="1733138566979" duration="8066000" />
       <workItem from="1733146658205" duration="4441000" />
       <workItem from="1733156181931" duration="5628000" />
-      <workItem from="1733218760283" duration="4745000" />
+      <workItem from="1733218760283" duration="5221000" />
+      <workItem from="1733228911126" duration="6386000" />
     </task>
     <servers />
   </component>

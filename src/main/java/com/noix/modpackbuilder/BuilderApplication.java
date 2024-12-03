@@ -12,8 +12,7 @@ import java.io.IOException;
 public class BuilderApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        AppConfig config = new AppConfig();
-        config.loadConfigs();
+        AppConfig config = AppConfig.getInstance();
         GUIBuilder builder = new GUIBuilder();
         builder.initWindow(stage);
     }
