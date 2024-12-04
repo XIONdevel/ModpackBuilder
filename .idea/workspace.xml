@@ -6,11 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="3f229032-fe48-40a8-b6ab-5ac40c3db5b1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/noix/modpackbuilder/BuilderApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/noix/modpackbuilder/BuilderApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/noix/modpackbuilder/config/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/noix/modpackbuilder/config/AppConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/noix/modpackbuilder/config/ConfigDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/noix/modpackbuilder/config/ConfigDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/noix/modpackbuilder/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/noix/modpackbuilder/controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/noix/modpackbuilder/gui/GUIBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/noix/modpackbuilder/gui/GUIBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/noix/modpackbuilder/mod/ModUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/noix/modpackbuilder/mod/ModUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/noix/modpackbuilder/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/noix/modpackbuilder/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/noix/modpackbuilder/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/noix/modpackbuilder/main-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +25,7 @@
       <list>
         <option value="FxmlFile" />
         <option value="Class" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -61,23 +65,24 @@
     <option name="openDirectoriesWithSingleClick" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.BuilderApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/ModLoader&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.BuilderApplication.executor": "Run",
+    "Application.HelloApplication.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/ModLoader",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\ModpackBuilder\src\main\resources\com\noix\modpackbuilder" />
@@ -125,7 +130,9 @@
       <workItem from="1733146658205" duration="4441000" />
       <workItem from="1733156181931" duration="5628000" />
       <workItem from="1733218760283" duration="5221000" />
-      <workItem from="1733228911126" duration="6386000" />
+      <workItem from="1733228911126" duration="6537000" />
+      <workItem from="1733311832500" duration="982000" />
+      <workItem from="1733319247716" duration="5356000" />
     </task>
     <servers />
   </component>

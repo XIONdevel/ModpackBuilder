@@ -1,5 +1,6 @@
 package com.noix.modpackbuilder.controller;
 
+import com.noix.modpackbuilder.gui.GUIBuilder;
 import com.noix.modpackbuilder.mod.Mod;
 import com.noix.modpackbuilder.mod.ModUtils;
 import javafx.beans.property.SimpleStringProperty;
@@ -17,14 +18,19 @@ public class MainController {
 
     @FXML
     public TableView modView;
-    @FXML
     public Button refreshButton;
+    public Button settingsButton;
 
     //TODO: add exception handling
     @FXML
     public void refreshModList(ActionEvent event) throws IOException {
         ObservableList<Mod> mods = FXCollections.observableArrayList(ModUtils.getModList());
         modView.setItems(mods);
+    }
+
+    @FXML
+    public void openSettings(ActionEvent event) {
+        GUIBuilder.getInstance().initSettingsWindow();
     }
 
     public void initModViewTables() {

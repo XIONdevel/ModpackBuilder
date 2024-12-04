@@ -1,9 +1,7 @@
 package com.noix.modpackbuilder;
 
 import com.noix.modpackbuilder.config.AppConfig;
-import com.noix.modpackbuilder.controller.MainController;
 import com.noix.modpackbuilder.gui.GUIBuilder;
-import com.sun.tools.javac.Main;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -13,8 +11,8 @@ public class BuilderApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         AppConfig config = AppConfig.getInstance();
-        GUIBuilder builder = new GUIBuilder();
-        builder.initWindow(stage);
+        GUIBuilder builder = GUIBuilder.getInstance();
+        builder.initMainWindow(stage);
     }
 
     public static void main(String[] args) {

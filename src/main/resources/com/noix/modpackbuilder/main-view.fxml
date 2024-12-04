@@ -23,7 +23,7 @@
             <right>
                 <HBox styleClass="top-right-box">
                     <Button fx:id="refreshButton" styleClass="top-button" onAction="#refreshModList" text="R"/>
-                    <Button styleClass="top-button" text="S"/><!-- Settings -->
+                    <Button fx:id="settingsButton" styleClass="top-button" onAction="#openSettings" text="S"/><!-- Settings -->
                 </HBox>
             </right>
             <left>

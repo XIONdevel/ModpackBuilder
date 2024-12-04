@@ -18,18 +18,14 @@ public class ModUtils {
     public static List<Mod> getModList() throws IOException {
         List<Mod> result = new ArrayList<>();
 
-        if (!AppConfig.DOWNLOAD_MOD_DIRS.isEmpty()) {
-            for (Path dir : AppConfig.DOWNLOAD_MOD_DIRS) {
-                Files.walk(dir).forEach(path -> {
-                    if (!Files.isDirectory(path)) {
-                        String fileName = path.getFileName().toString();
-                        if (fileName.endsWith(".jar")) {
-                            result.add(extractMod(fileName.substring(0, fileName.length() - 4), path));
-                        }
-                    }
-                });
+        Files.walk(AppConfig.DOWNLOAD_DIR).forEach(path -> {
+            if (!Files.isDirectory(path)) {
+                String fileName = path.getFileName().toString();
+                if (fileName.endsWith(".jar")) {
+                    result.add(extractMod(fileName.substring(0, fileName.length() - 4), path));
+                }
             }
-        }
+        });
         return result;
     }
 

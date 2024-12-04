@@ -4,30 +4,32 @@ import java.util.List;
 
 public class ConfigDTO {
 
-    public List<String> downloadModDirs;
-    public String minecraftModDir;
+    public String downloadsDir;
+    public String modsDir;
 
-    public ConfigDTO(List<String> downloadModDirs, String minecraftModDir) {
-        this.downloadModDirs = downloadModDirs;
-        this.minecraftModDir = minecraftModDir;
-    }
+
 
     public ConfigDTO() {
     }
 
-    public List<String> getDownloadModDirs() {
-        return downloadModDirs;
+    public ConfigDTO(String downloadsDir, String modsDir) {
+        this.downloadsDir = downloadsDir;
+        this.modsDir = modsDir;
     }
 
-    public void setDownloadModDirs(List<String> downloadModDirs) {
-        this.downloadModDirs = downloadModDirs;
+    public String getDownloadsDir() {
+        return downloadsDir;
     }
 
-    public String getMinecraftModDir() {
-        return minecraftModDir;
+    public void setDownloadsDir(String downloadsDir) {
+        this.downloadsDir = downloadsDir;
     }
 
-    public void setMinecraftModDir(String minecraftModDir) {
-        this.minecraftModDir = minecraftModDir;
+    public String getModsDir() {
+        return modsDir;
+    }
+
+    public void setModsDir(String modsDir) {
+        this.modsDir = modsDir;
     }
 }

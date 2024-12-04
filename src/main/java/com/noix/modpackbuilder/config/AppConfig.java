@@ -7,8 +7,7 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
 public class AppConfig {
 
@@ -18,8 +17,8 @@ public class AppConfig {
     public final Path PATH_TO_APPDATA;
     public final Path PATH_TO_CONFIG;
 
-    public static List<Path> DOWNLOAD_MOD_DIRS;
-    public static Path MINECRAFT_MOD_DIR;
+    public static Path DOWNLOAD_DIR;
+    public static Path MINECRAFT_MODS_DIR;
 
     public static AppConfig getInstance() {
         if (appConfig == null) {
@@ -33,26 +32,39 @@ public class AppConfig {
         PATH_TO_APPDATA = Path.of(String.format("C:\\Users\\%s\\AppData", username));
         PATH_TO_CONFIG = Path.of(String.format("C:\\Users\\%s\\AppData\\Local\\ModpackBuilder\\config.json", username));
         if (Files.exists(PATH_TO_CONFIG)) {
-                readConfig();
+            System.out.println("Config exists");
+                dtoToVariables(readFromFile());
         } else {
-            createDefaultConfig();
+            System.out.println("Config not exists");
+            LOGGER.warn("Config does not exist, creating default");
+            dtoToVariables(createDefaultConfig());
         }
-        System.out.println(DOWNLOAD_MOD_DIRS);
     }
 
-    private void readConfig() {
-        LOGGER.info("Started readConfig");
+    private ConfigDTO readFromFile() {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
-            ConfigDTO config = objectMapper.readValue(PATH_TO_CONFIG.toFile(), ConfigDTO.class);
-            readConfigDTO(config);
+            return objectMapper.readValue(PATH_TO_CONFIG.toFile(), ConfigDTO.class);
         } catch (IOException e) {
+            LOGGER.warn(e.getMessage());
+            LOGGER.debug(Arrays.toString(e.getStackTrace()));
             e.printStackTrace();
+            return createDefaultConfig();
         }
     }
 
-    private void createDefaultConfig() {
-        LOGGER.info("Started createDefaultConfig");
+    public void writeConfig(ConfigDTO config) {
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.writeValue(PATH_TO_CONFIG.toFile(), config);
+            dtoToVariables(config);
+        } catch (IOException e) {
+            LOGGER.warn(e.getMessage());
+            LOGGER.debug(Arrays.toString(e.getStackTrace()));
+        }
+    }
+
+    private ConfigDTO createDefaultConfig() {
         try {
             final String username = System.getProperty("user.name");
             Path configDir = Path.of(String.format("C:\\Users\\%s\\AppData\\Local\\ModpackBuilder", username));
@@ -64,26 +76,29 @@ public class AppConfig {
                 Files.createFile(PATH_TO_CONFIG);
             }
 
-            ObjectMapper objectMapper = new ObjectMapper();
             ConfigDTO config = new ConfigDTO(
-                    List.of(String.format("C:\\Users\\%s\\Downloads", username)),
+                    String.format("C:\\Users\\%s\\Downloads", username),
                     String.format("C:\\Users\\%s\\AppData\\Roaming\\.minecraft\\mods", username)
             );
-
-            objectMapper.writeValue(PATH_TO_CONFIG.toFile(), config);
-            readConfigDTO(config);
+            writeConfig(config);
+            return config;
         } catch (IOException e) {
-            e.printStackTrace();
+            LOGGER.error(e.getMessage());
+            LOGGER.debug(Arrays.toString(e.getStackTrace()));
+            return null; //TODO: show error to user
         }
     }
 
-    public void readConfigDTO(ConfigDTO config) {
-        DOWNLOAD_MOD_DIRS = new ArrayList<>();
-        MINECRAFT_MOD_DIR = Path.of(config.minecraftModDir);
-        config.downloadModDirs.forEach(p -> DOWNLOAD_MOD_DIRS.add(Path.of(p)));
-        if (DOWNLOAD_MOD_DIRS == null || MINECRAFT_MOD_DIR == null) {
+    public void dtoToVariables(ConfigDTO config) {
+        MINECRAFT_MODS_DIR = Path.of(config.modsDir);
+        DOWNLOAD_DIR =  Path.of(config.downloadsDir);
+        if (DOWNLOAD_DIR == null || MINECRAFT_MODS_DIR == null) {
+            System.out.println("Something null");
+            System.out.println(DOWNLOAD_DIR + " " + MINECRAFT_MODS_DIR);
             createDefaultConfig();
         }
     }
+
+
 
 }
