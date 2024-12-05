@@ -1,0 +1,32 @@
+
+
+.label {
+    -fx-background-color: none;
+    -fx-font-size: 16;
+}
+
+.modDirField, .downloadDirField {
+    -fx-font-size: 14;
+}
+
+.modVBox, .downloadVBox {
+    -fx-padding: 10;
+}
+
+.downloadVBox {
+
+}
+
+.saveButton, .cancelButton {
+    -fx-pref-width: 70;
+    -fx-pref-height: 30;
+}
+
+.buttonHBox {
+    -fx-spacing: 10;
+    -fx-padding: 10;
+}
+
+.mainVbox {
+
+}

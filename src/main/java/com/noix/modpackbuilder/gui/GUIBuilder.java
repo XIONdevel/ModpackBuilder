@@ -44,17 +44,30 @@ public class GUIBuilder {
         Stage settingsWindow = new Stage();
         settingsWindow.setTitle("Settings");
 
+
         Label modLabel = new Label("Mod directory");
+        modLabel.getStyleClass().add("label");
+
         TextField modDir = new TextField(AppConfig.MINECRAFT_MODS_DIR.toString());
         modDir.setPromptText("Path to .minecraft/mods");
+        modDir.getStyleClass().add("modDirField");
         VBox modBox = new VBox();
+
         modBox.getChildren().addAll(modLabel, modDir);
+        modBox.getStyleClass().add("modVBox");
+
 
         Label downloadLabel = new Label("Downloads directory");
+        downloadLabel.getStyleClass().add("label");
+
         TextField downloadDir = new TextField(AppConfig.DOWNLOAD_DIR.toString());
         downloadDir.setPromptText("Path to downloaded mods");
+        downloadDir.getStyleClass().add("downloadDirField");
         VBox downloadBox = new VBox();
+
         downloadBox.getChildren().addAll(downloadLabel, downloadDir);
+        downloadBox.getStyleClass().add("downloadVBox");
+
 
         Button saveButton = new Button("Save");
         saveButton.setOnAction(event -> {
@@ -65,17 +78,23 @@ public class GUIBuilder {
             AppConfig.getInstance().writeConfig(dto);
             settingsWindow.close();
         });
+        saveButton.getStyleClass().add("saveButton");
+
 
         Button cancelButton = new Button("Cancel");
         cancelButton.setOnAction(event -> {
             settingsWindow.close();
         });
+        cancelButton.getStyleClass().add("cancelButton");
+
 
         HBox buttonBox = new HBox();
         buttonBox.getChildren().addAll(saveButton, cancelButton);
+        buttonBox.getStyleClass().add("buttonHBox");
 
         VBox mainBox = new VBox();
         mainBox.getChildren().addAll(modBox, downloadBox, buttonBox);
+        mainBox.getStyleClass().add("mainVBox");
 
         Scene scene = new Scene(mainBox, 400, 300);
         scene.getStylesheets().add(getClass().getResource("/com/noix/modpackbuilder/css/settings.css").toExternalForm());

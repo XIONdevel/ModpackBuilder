@@ -32,8 +32,7 @@ public class AppConfig {
         PATH_TO_APPDATA = Path.of(String.format("C:\\Users\\%s\\AppData", username));
         PATH_TO_CONFIG = Path.of(String.format("C:\\Users\\%s\\AppData\\Local\\ModpackBuilder\\config.json", username));
         if (Files.exists(PATH_TO_CONFIG)) {
-            System.out.println("Config exists");
-                dtoToVariables(readFromFile());
+            dtoToVariables(readFromFile());
         } else {
             System.out.println("Config not exists");
             LOGGER.warn("Config does not exist, creating default");
@@ -91,14 +90,13 @@ public class AppConfig {
 
     public void dtoToVariables(ConfigDTO config) {
         MINECRAFT_MODS_DIR = Path.of(config.modsDir);
-        DOWNLOAD_DIR =  Path.of(config.downloadsDir);
+        DOWNLOAD_DIR = Path.of(config.downloadsDir);
         if (DOWNLOAD_DIR == null || MINECRAFT_MODS_DIR == null) {
             System.out.println("Something null");
             System.out.println(DOWNLOAD_DIR + " " + MINECRAFT_MODS_DIR);
             createDefaultConfig();
         }
     }
-
 
 
 }

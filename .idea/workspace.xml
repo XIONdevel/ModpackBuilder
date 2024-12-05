@@ -6,14 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="3f229032-fe48-40a8-b6ab-5ac40c3db5b1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/noix/modpackbuilder/BuilderApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/noix/modpackbuilder/BuilderApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/noix/modpackbuilder/config/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/noix/modpackbuilder/config/AppConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/noix/modpackbuilder/config/ConfigDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/noix/modpackbuilder/config/ConfigDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/noix/modpackbuilder/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/noix/modpackbuilder/controller/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/noix/modpackbuilder/gui/GUIBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/noix/modpackbuilder/gui/GUIBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/noix/modpackbuilder/mod/ModUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/noix/modpackbuilder/mod/ModUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/noix/modpackbuilder/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/noix/modpackbuilder/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/noix/modpackbuilder/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/noix/modpackbuilder/main-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/noix/modpackbuilder/css/settings.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/noix/modpackbuilder/css/settings.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,6 +66,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/ModLoader",
     "list.type.of.created.stylesheet": "CSS",
@@ -132,7 +127,9 @@
       <workItem from="1733218760283" duration="5221000" />
       <workItem from="1733228911126" duration="6537000" />
       <workItem from="1733311832500" duration="982000" />
-      <workItem from="1733319247716" duration="5356000" />
+      <workItem from="1733319247716" duration="6129000" />
+      <workItem from="1733334227837" duration="722000" />
+      <workItem from="1733384358538" duration="1105000" />
     </task>
     <servers />
   </component>
