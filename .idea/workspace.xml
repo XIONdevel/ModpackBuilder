@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="3f229032-fe48-40a8-b6ab-5ac40c3db5b1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/noix/modpackbuilder/gui/GUIBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/noix/modpackbuilder/gui/GUIBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/noix/modpackbuilder/css/settings.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/noix/modpackbuilder/css/settings.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/noix/modpackbuilder/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/noix/modpackbuilder/controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/noix/modpackbuilder/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/noix/modpackbuilder/main-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +129,7 @@
       <workItem from="1733311832500" duration="982000" />
       <workItem from="1733319247716" duration="6129000" />
       <workItem from="1733334227837" duration="722000" />
-      <workItem from="1733384358538" duration="1105000" />
+      <workItem from="1733384358538" duration="4286000" />
     </task>
     <servers />
   </component>

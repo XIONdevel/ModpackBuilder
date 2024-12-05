@@ -1,5 +1,6 @@
 package com.noix.modpackbuilder.controller;
 
+import com.noix.modpackbuilder.config.AppConfig;
 import com.noix.modpackbuilder.gui.GUIBuilder;
 import com.noix.modpackbuilder.mod.Mod;
 import com.noix.modpackbuilder.mod.ModUtils;
@@ -12,14 +13,20 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
+import java.nio.file.FileVisitResult;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.SimpleFileVisitor;
+import java.nio.file.attribute.BasicFileAttributes;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
 
 public class MainController {
 
     @FXML
-    public TableView modView;
-    public Button refreshButton;
-    public Button settingsButton;
+    public TableView<Mod> modView;
 
     //TODO: add exception handling
     @FXML
@@ -92,4 +99,86 @@ public class MainController {
             return row;
         });
     }
+
+    @FXML
+    public void enableAll(ActionEvent event) {
+        modView.getItems().forEach(mod -> {
+            mod.setEnabled(true);
+        });
+    }
+
+    @FXML
+    public void disableAll(ActionEvent event) {
+        modView.getItems().forEach(mod -> {
+            mod.setEnabled(false);
+        });
+    }
+
+    @FXML
+    public void copyMods(ActionEvent event) {
+        modView.getItems().forEach(mod -> {
+            Path path = Path.of(mod.getPath());
+            Path resolvedTarget = AppConfig.MINECRAFT_MODS_DIR.resolve(path.getFileName());
+            if (mod.isEnabled() && Files.exists(path) && Files.notExists(resolvedTarget)) {
+                try {
+                    Files.copy(path, resolvedTarget);
+                } catch (IOException e) {
+                    //TODO: add logging
+                    throw new RuntimeException(e);
+                }
+            }
+        });
+        System.out.println("Finished");
+    }
+
+    @FXML
+    public void backupMods(ActionEvent event) throws IOException {
+        final String username = System.getProperty("user.name");
+        final Path sourceDir = AppConfig.MINECRAFT_MODS_DIR;
+        final Path archivePath = Path.of( //TODO: improve naming
+                String.format("C:\\Users\\%s\\Downloads\\mods.zip", username) //TODO: add to config
+        );
+
+        try (ZipOutputStream zipOutputStream = new ZipOutputStream(Files.newOutputStream(archivePath))) {
+            // Walk through the directory tree
+            Files.walkFileTree(sourceDir, new SimpleFileVisitor<>() {
+                @Override
+                public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
+                    // Add a file to the zip archive
+                    Path relativePath = sourceDir.relativize(file);
+                    zipOutputStream.putNextEntry(new ZipEntry(relativePath.toString().replace("\\", "/")));
+                    Files.copy(file, zipOutputStream);
+                    zipOutputStream.closeEntry();
+                    return FileVisitResult.CONTINUE;
+                }
+
+                @Override
+                public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) throws IOException {
+                    // Add a directory to the zip archive
+                    Path relativePath = sourceDir.relativize(dir);
+                    if (!relativePath.toString().isEmpty()) {
+                        zipOutputStream.putNextEntry(new ZipEntry(relativePath.toString().replace("\\", "/") + "/"));
+                        zipOutputStream.closeEntry();
+                    }
+                    return FileVisitResult.CONTINUE;
+                }
+            });
+        }
+
+        System.out.println("Directory successfully archived to: " + archivePath);
+    }
+
+    @FXML void cleanModFolder(ActionEvent event) throws IOException {
+        Files.walk(AppConfig.MINECRAFT_MODS_DIR).forEach(path -> {
+            if (Files.isRegularFile(path) || path.getFileName().toString().endsWith(".jar")) {
+                try {
+                    Files.delete(path);
+                } catch (IOException e) {
+                    //TODO: add logging
+                    throw new RuntimeException(e);
+                }
+            }
+        });
+    }
+
 }
